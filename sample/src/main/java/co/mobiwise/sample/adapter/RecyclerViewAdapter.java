@@ -1,13 +1,16 @@
 package co.mobiwise.sample.adapter;
 
+import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.squareup.picasso.LruCache;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -34,12 +37,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewAdapter.ExampleViewHolder holder, int position) {
+    public void onBindViewHolder(ExampleViewHolder holder, int position) {
         Song song = songList.get(position);
 
         holder.coverName.setText(song.songName);
         holder.singerName.setText(song.singerName);
-        Picasso.with(context).load(song.songArt).into(holder.coverIamge);
+
+//        Picasso.Builder builder = new Picasso.Builder(context);
+//        LruCache picassoCache = new LruCache(context);
+//        builder.memoryCache(picassoCache);
+//        Picasso.setSingletonInstance(builder.build());
+        //Picasso.Builder.with(context).load(song.songArt).into(holder.coverIamge);
+        Picasso.get().load(song.songArt).into(holder.coverIamge);
+
     }
 
     @Override

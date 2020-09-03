@@ -1,12 +1,13 @@
 package co.mobiwise.sample.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import co.mobiwise.materialintro.animation.MaterialIntroListener;
 import co.mobiwise.materialintro.shape.Focus;
@@ -17,7 +18,7 @@ import co.mobiwise.sample.R;
 /**
  * Created by mertsimsek on 31/01/16.
  */
-public class FocusFragment extends Fragment implements MaterialIntroListener{
+public class FocusFragment extends Fragment implements MaterialIntroListener {
 
     private static final String INTRO_FOCUS_1 = "intro_focus_1";
     private static final String INTRO_FOCUS_2 = "intro_focus_2";
@@ -36,12 +37,12 @@ public class FocusFragment extends Fragment implements MaterialIntroListener{
         button2 = (Button) view.findViewById(R.id.button_focus_2);
         button3 = (Button) view.findViewById(R.id.button_focus_3);
 
-        showIntro(button1,INTRO_FOCUS_1,"This intro view focus on all target.", Focus.ALL);
+        showIntro(button1, INTRO_FOCUS_1, "This intro view focus on all target.", Focus.ALL);
 
         return view;
     }
 
-    public void showIntro(View view, String id, String text, Focus focusType){
+    public void showIntro(View view, String id, String text, Focus focusType) {
         new MaterialIntroView.Builder(getActivity())
                 .enableDotAnimation(false)
                 .setFocusGravity(FocusGravity.CENTER)
@@ -58,9 +59,9 @@ public class FocusFragment extends Fragment implements MaterialIntroListener{
 
     @Override
     public void onUserClicked(String materialIntroViewId) {
-        if(materialIntroViewId == INTRO_FOCUS_1)
-            showIntro(button2,INTRO_FOCUS_2,"This intro view focus on minimum size", Focus.MINIMUM);
-        else if(materialIntroViewId == INTRO_FOCUS_2)
-            showIntro(button3,INTRO_FOCUS_3,"This intro view focus on normal size (avarage of MIN and ALL)", Focus.NORMAL);
+        if (materialIntroViewId == INTRO_FOCUS_1)
+            showIntro(button2, INTRO_FOCUS_2, "This intro view focus on minimum size", Focus.MINIMUM);
+        else if (materialIntroViewId == INTRO_FOCUS_2)
+            showIntro(button3, INTRO_FOCUS_3, "This intro view focus on normal size (avarage of MIN and ALL)", Focus.NORMAL);
     }
 }

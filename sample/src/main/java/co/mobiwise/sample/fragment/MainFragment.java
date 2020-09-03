@@ -1,13 +1,14 @@
 package co.mobiwise.sample.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import co.mobiwise.materialintro.prefs.PreferencesManager;
 import co.mobiwise.materialintro.shape.Focus;
@@ -19,7 +20,7 @@ import co.mobiwise.sample.R;
 /**
  * Created by mertsimsek on 31/01/16.
  */
-public class MainFragment extends Fragment implements View.OnClickListener{
+public class MainFragment extends Fragment implements View.OnClickListener {
 
     private static final String INTRO_CARD = "material_intro";
 
@@ -44,11 +45,11 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         int id = v.getId();
 
-        if(id == R.id.button_reset_all)
+        if (id == R.id.button_reset_all)
             new PreferencesManager(getActivity().getApplicationContext()).resetAll();
     }
 
-    private void showIntro(View view, String usageId, String text){
+    private void showIntro(View view, String usageId, String text) {
         new MaterialIntroView.Builder(getActivity())
                 .enableDotAnimation(true)
                 //.enableIcon(false)
